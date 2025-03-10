@@ -1,6 +1,6 @@
 # node-hello demo project
 
-### Create a Jenkins pipeline that sync this code and does the following: 
+### Create a Jenkins pipeline that clone this repository and does the following: 
 - Build this code (Should run on LTS node version)
 - Run the unit tests
 - Run lint on the code 
