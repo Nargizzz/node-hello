@@ -4,9 +4,14 @@
   "description": "A simple Node.js Hello World app with Jest tests",
   "main": "hello.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "devDependencies": {
+    "@eslint/js": "^9.22.0",
+    "eslint": "^9.22.0",
+    "eslint-plugin-jest": "^28.11.0",
+    "globals": "^16.0.0",
     "jest": "^29.0.0"
   }
 }
