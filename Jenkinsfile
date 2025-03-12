@@ -24,7 +24,7 @@ pipeline {
             steps {
                 script {
                     echo 'Installing dependencies from npm registry.'
-                    sh "npm install --registry=${env.npmRegistry}"
+                    sh "npm install --registry=${env.npmRegistry}" // Find a way to cache this. Installing every time is ugly
                 }
             }
         }
