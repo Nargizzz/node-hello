@@ -11,7 +11,7 @@
 - Create a Jenkins job that runs this Dockerfile 
 
 #### The Process:
-1. Set up Jenkins with jenkins:jenkins:lts docker image
+1. Set up Jenkins with `jenkins/jenkins:lts` docker image
 `docker run -d --name nara_jenkins -p 9091:8080 -p 50001:50000 -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts`
 Separately installed npm and docker on it
 
