@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Nargizzz/node-hello.git'
+            }
+        }
+        
         stage('Running the tests') {
             steps {
                  script {
