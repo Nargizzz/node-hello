@@ -2,7 +2,11 @@ pipeline {
     agent any
 
     environment {
-        npmRegistry = 'https://registry.npmjs.org/'
+        npmRegistry    = 'https://registry.npmjs.org/'
+        imageName      = 'nara123/node-hello'
+        imageTag       = "${BUILD_NUMBER}"
+        dockerRegistry = "docker.io"
+        customImage    = ''
     }
 
     stages {
@@ -31,6 +35,35 @@ pipeline {
                     echo 'Running lint and tests.'
                     sh 'npm run lint'
                     sh 'npm test'
+                }
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    echo 'Building the Docker image...'
+                    customImage = docker.build("${imageName}:${env.imageTag}")
+                }
+            }
+        }
+
+        stage('Docker Login') {
+            steps {
+                script {
+                    echo "Logging in to docker registry"
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'dockerUser', passwordVariable: 'dockerPass')]) {
+                        sh "echo $dockerPass | docker login -u $dockerUser --password-stdin"
+                    }
+                    echo 'Docker Login successfull'
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    echo 'Pushing docker image to the artifactory...'
+                    customImage.push()
                 }
             }
         }
