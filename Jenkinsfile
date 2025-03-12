@@ -13,7 +13,7 @@ pipeline {
         stage('Setup') {
             steps {
                 script {
-                    echo 'Cleaning up gigya dependencies and setting public npm registry.' //My docker jenkins cant access gigya
+                    echo 'Cleaning up gigya dependencies and setting public npm registry.' //My docker jenkins cant access gigya registry
                     sh 'rm -rf node_modules package-lock.json'
                     sh "npm config set registry ${env.npmRegistry}"
                 }
