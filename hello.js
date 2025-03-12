@@ -4,5 +4,5 @@ function hello(name) {
     }
     return "Hello, World!";
 }
-console.log(hello('World'));
+
 module.exports = hello;
