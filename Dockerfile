@@ -13,12 +13,6 @@ RUN npm install -g npm@11.2.0
 # Copy the rest of the application
 COPY . .
 
-# Run linting
-RUN npm run lint
-
-# Run tests
-RUN npm run test
-
 # Expose the application port
 EXPOSE 3000
 

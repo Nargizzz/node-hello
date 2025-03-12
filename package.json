@@ -4,8 +4,8 @@
   "description": "A simple Node.js Hello World app with Jest tests",
   "main": "hello.js",
   "scripts": {
-    "test": "npm install -g jest && jest --verbose",
-    "lint": "npm install -g eslint"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
